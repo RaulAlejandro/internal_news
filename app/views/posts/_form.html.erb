@@ -18,6 +18,10 @@
           </div>
         </div>
         <div class="form-group">
+          <%= f.label :image %>
+          <%= f.file_field :image %>
+        </div>
+        <div class="form-group">
           <%= f.label :content, class:"control-label"%>
           <%= f.text_area :content, class: "tinymce", cols:"20", rows:"20" %>
           <%= tinymce %>
