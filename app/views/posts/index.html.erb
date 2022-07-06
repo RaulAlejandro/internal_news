@@ -1,11 +1,13 @@
 <div class="grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
-      <form class="form-inline">
-        <label class="sr-only">Name</label>
-        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
+      <!--<form class="form-inline">-->
+      <%= form_for("", url: search_posts_path, method:'get', remote: true, html: { id: 'posts_search', class: 'form-inline'} ) do |f| %> 
+        <label class="sr-only">Autor</label>
+        <%= text_field_tag :author, params[:author], class:"form-control", placeholder:"Buscar por nombre de autor..."%>
+        <!--<input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
         <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
+        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">-->
         <!--<div class="input-group mb-2 mr-sm-2">
           <div class="input-group-prepend">
             <div class="input-group-text">@</div>
@@ -13,31 +15,37 @@
           <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
         </div>-->
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
-      </form>
+      <% end %>
     </div>
   </div>
 </div>
 <h5 class="mb-4 text-titlecase mt-5">Listado de Noticias</h5>
-<div class="list-group">  
-  <% @posts.each do |post| %>
-    <%= link_to post , style:"color:#797a7b" do %>
+<div class="row">
+    <div id="list-posts" class="col-md-12">            
+        <%= render partial: "posts" %>
+    </div>
+</div>
+<!--<div class="list-group">  
+  <%# @posts.each do |post| %>
+    <%#= link_to post , style:"color:#797a7b" do %>
       <div class="card mb-3" >
         <div class="row no-gutters">
           <div class="col-md-2">
-            <img src="https://www.tutlane.com/images/defaultimg.png" style="height: 100%;" class="card-img">
+            <%#= image_tag post.image, style:"height: 100%", class:"card-img"%>
+            <%#= image_tag(post.image.attached? ?  post.image : 'account-add-photo.svg' , style:"height: 100%" , class: "card-img") %>
           </div>
           <div class="col-md-10">
             <div class="card-body">
-              <h5 class="card-title"><%= post.title%></h5>
-              <!--<p class="card-text"><%#= sanitize truncate post.content.html_safe, length: 50  %>.</p>-->
+              <h5 class="card-title"><%#= post.title%></h5>
+              <p class="card-text"><%#= sanitize truncate post.content.html_safe, length: 50  %>.</p>
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
           </div>
         </div>
       </div>
-    <% end %>
-  <% end %>
-</div>
+    <%# end %>
+  <%# end %>
+</div>-->
 
 
 <!--<div class="card-deck row row-cols-1 row-cols-md-3">
