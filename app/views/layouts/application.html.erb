@@ -7,10 +7,22 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= tinymce_assets %>
+    <script type="text/javascript" src="/assets/tinymce.js"></script>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container-scroller">
+      <%= render "layouts/header"  if current_user.present?%> 
+      <div class="container-fluid page-body-wrapper">
+      <div class="row w-100 mx-0">
+        <div class="content-wrapper">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    </div>
+    <%#= javascript_include_tag params[:controller] %>
   </body>
 </html>
