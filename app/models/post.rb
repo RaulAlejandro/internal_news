@@ -14,7 +14,7 @@ class Post < ApplicationRecord
 
     ##############
 
-    def self.search(author, start_date, end_date)
+    def self.search(author, start_date, end_date, order_by)
         query = Post.all
         if author.present?
             query = query.joins(:user)
@@ -23,7 +23,13 @@ class Post < ApplicationRecord
         if start_date.present? && start_date.present?
             query = query.where("posts.created_at BETWEEN ? AND ?", start_date, end_date )
         end
-       query.order('id DESC')
+        if order_by.present?
+            unless order_by == '0'
+                query = query.joins(:user).order('users.name DESC')
+            else
+                query = query.joins(:user).order('users.name ASC')
+            end
+        end
     end
 
     private

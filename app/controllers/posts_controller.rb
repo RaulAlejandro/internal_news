@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:author], params[:start_date], params[:end_date])    
+    @posts = Post.search(params[:author], params[:start_date], params[:end_date], params[:order_by])    
     respond_to do |format|
       format.html
       format.js { render :layout => false }
