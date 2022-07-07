@@ -2,9 +2,22 @@
   <div class="card">
     <div class="card-body">
       <!--<form class="form-inline">-->
-      <%= form_for("", url: search_posts_path, method:'get', remote: true, html: { id: 'posts_search', class: 'form-inline'} ) do |f| %> 
-        <label class="sr-only">Autor</label>
-        <%= text_field_tag :author, params[:author], class:"form-control", placeholder:"Buscar por nombre de autor..."%>
+      <%= form_for("", url: search_posts_path, method:'get', remote: true, html: { id: 'posts_search', class: ''} ) do |f| %>
+          <div class="form-row">
+            <div class="col-4">
+              <label class="sr-only">Autor</label>
+              <%= text_field_tag :author, params[:author], class:"form-control", placeholder:"Buscar por nombre de autor..."%>
+            </div>
+            <div class="col-3">
+              <%= date_field_tag :start_date, params[:start_date], class:"form-control",  placeholder:"Fecha Inicio" %>
+            </div>
+            <div class="col-3">
+              <%= date_field_tag :end_date, params[:end_date], class:"form-control",  placeholder:"Fecha Fin" %>
+            </div>
+            <div class="col-2">
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+          </div>
         <!--<input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
         <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
         <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">-->
@@ -13,8 +26,8 @@
             <div class="input-group-text">@</div>
           </div>
           <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
-        </div>-->
-        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>-->
       <% end %>
     </div>
   </div>
