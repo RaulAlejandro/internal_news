@@ -1,74 +1,41 @@
-<div class="grid-margin stretch-card">
-  <div class="card">
-    <div class="card-body">
-      <!--<form class="form-inline">-->
-      <%= form_for("", url: search_posts_path, method:'get', remote: true, html: { id: 'posts_search', class: 'form-inline'} ) do |f| %> 
-        <label class="sr-only">Autor</label>
-        <%= text_field_tag :author, params[:author], class:"form-control", placeholder:"Buscar por nombre de autor..."%>
-        <!--<input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
-        <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">-->
-        <!--<div class="input-group mb-2 mr-sm-2">
-          <div class="input-group-prepend">
-            <div class="input-group-text">@</div>
+<%= form_for("", url: search_posts_path, method:'get', remote: true, html: { id: 'posts_search', class: ''} ) do |f| %>
+  <div class="grid-margin stretch-card" style="margin-top:100px">
+    <div class="card">
+      <div class="card-body">
+        <!--<form class="form-inline">-->
+          <div class="form-row">
+            <div class="col-md-4">
+              <label class="sr-only">Autor</label>
+              <%= text_field_tag :author, params[:author], class:"form-control", placeholder:"Buscar por nombre de autor..."%>
+            </div>
+            <div class="col-md-3">
+              <%= date_field_tag :start_date, params[:start_date], class:"form-control",  placeholder:"Fecha Inicio" %>
+            </div>
+            <div class="col-md-3">
+              <%= date_field_tag :end_date, params[:end_date], class:"form-control",  placeholder:"Fecha Fin" %>
+            </div>
+            <div class="col-md-2" align="center">
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
           </div>
-          <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
-        </div>-->
-        <button type="submit" class="btn btn-primary mb-2">Submit</button>
-      <% end %>
+      </div>
     </div>
   </div>
-</div>
-<h5 class="mb-4 text-titlecase mt-5">Listado de Noticias</h5>
+  <div class="row">
+    <div class="col-8">
+      <p class="mb-4 text-mute mt-5" align="right">Ordenar Autor por:</p>
+    </div>
+    <div class="col-4" align="right" >
+      <%= select_tag :order_by, options_for_select([['Ascendente', 0],['Descendente',1]]), class:'form-control mb-4 mt-5' %>
+    </div>
+  </div>
+<% end %>
 <div class="row">
     <div id="list-posts" class="col-md-12">            
         <%= render partial: "posts" %>
     </div>
 </div>
-<!--<div class="list-group">  
-  <%# @posts.each do |post| %>
-    <%#= link_to post , style:"color:#797a7b" do %>
-      <div class="card mb-3" >
-        <div class="row no-gutters">
-          <div class="col-md-2">
-            <%#= image_tag post.image, style:"height: 100%", class:"card-img"%>
-            <%#= image_tag(post.image.attached? ?  post.image : 'account-add-photo.svg' , style:"height: 100%" , class: "card-img") %>
-          </div>
-          <div class="col-md-10">
-            <div class="card-body">
-              <h5 class="card-title"><%#= post.title%></h5>
-              <p class="card-text"><%#= sanitize truncate post.content.html_safe, length: 50  %>.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    <%# end %>
-  <%# end %>
-</div>-->
-
-
-<!--<div class="card-deck row row-cols-1 row-cols-md-3">
-  <%# @posts.each do |post| %>
-      <div class="col-md-3" style="margin: 2% 0 2% 0;">
-        <div class="card h-100">
-          <img class="card-img-top" src="https://www.tutlane.com/images/defaultimg.png" style="width: 100%; height: 180px;">
-          <%#= image_tag post.picture, class: 'card-img-top', width: 300 if post.picture.attached?%>
-          <div class="card-body">
-            <h5 class="card-title"><%#= post.title%></h5>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated <%#= post.updated_at%> ago</small>
-          </div>
-        </div>
-      </div>
-  <%# end %>
-</div>-->
-
-
-
 
 <p style="color: green"><%= notice %></p>
-
 
 <%= link_to "New post", new_post_path %>

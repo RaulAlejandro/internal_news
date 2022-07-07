@@ -8,6 +8,14 @@ class PostsController < ApplicationController
   def show
   end
 
+  def search
+    @posts = Post.search(params[:author], params[:start_date], params[:end_date], params[:order_by])    
+    respond_to do |format|
+      format.html
+      format.js { render :layout => false }
+    end
+  end
+
   def new
     @post = Post.new
   end
