@@ -1,32 +1,29 @@
 <div id="post_<%= post.id %>" class="row">
-  <div class="col-md-12">
+  <div class="col-md-12" style="border: 1px #dedede solid; padding:3em; background-color:#000">
     <div class="row">
-      <div class="col-md-12" style="border: 1px #dedede solid; padding:3em; background-color:#000">
         <%= image_tag post.image, style:"width: 100%; height: 600px;"%>
-      </div>
-      <div class="col-md-12" style="margin-top: 30px;">
-        <strong>Título:</strong>
-        <h3><%= post.title %></h3>
-      </div>
-      <div class="col-md-12" style="margin-top: 10px;">
-        <strong>Bajada:</strong>
-        <h6><%= post.title %></h6>
-      </div>
-      <div class="col-md-12" style="margin-top: 10px;">
-        <strong>Usuario:</strong>
-        <h6><%= post.user.name %></h6>
-      </div>
-      <div class="col-md-12" style="margin-top: 10px;">
-        <strong>Fecha creación:</strong>
-        <h6><%= post.created_at %></h6>
-      </div>
     </div>
   </div>
-  <div class="col-md-12">
-    <div class='post_content' style="background-color:#fff; padding:1em">
-      <% if action_name == 'show' %>
-        <%= simple_format post.content %>  
-      <% end %>
+  <div class="col-md-12 mt-4">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title" style="font-size:  1.875rem"><%= post.title %></h1>
+        <h5 class="card-subtitle"><%= post.title %></h5>
+        <br>
+        <p class="card-description">
+          Autor: <%= post.user.name %>
+        </p>
+        <p class="card-description">
+          Fecha Publicación: <%= post.created_at.to_date %>
+        </p>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote ">
+          <% if action_name == 'show' %>
+            <%= simple_format post.content %>  
+          <% end %>
+        </blockquote>
+      </div>
     </div>
   </div>
 </div>

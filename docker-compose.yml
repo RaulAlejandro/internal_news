@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:latest
+    container_name: internal-news-db
+    restart: always
+    environment:
+      - POSTGRES_DB=internal-news-dev
+      - POSTGRES_PASSWORD=${docker_postgres_pass}
+    ports:
+      - "5000:5432"
+    volumes:
+      - 'dbdata:/var/lib/postgresql/data'
+  web:
+    build: .
+    image: internal-news
+    container_name: internal-news-web
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://postgres:${docker_postgres_pass}@db:5432/internal-news-dev
+    volumes:
+      - .:/app
+volumes:
+  dbdata:
