@@ -19196,7 +19196,7 @@ code {
 /* Footer */
 .footer {
   background: #f4f5fa;
-  padding: 0 1.812rem 2.062rem 1.812rem;
+  /*padding: 0 1.812rem 2.062rem 1.812rem;*/
   transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -webkit-transition: all 0.25s ease;
@@ -21097,6 +21097,7 @@ code {
 }
 
 .card .card-subtitle {
+  color:  #605a5a;
   font-weight: 400;
   margin-top: 0.625rem;
   margin-bottom: 0.625rem;

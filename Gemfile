@@ -16,7 +16,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 
 gem "jquery-rails"
-
+gem "figaro"
 gem 'omniauth-google-oauth2', "~> 0.8.0"
 gem 'tinymce-rails'
 

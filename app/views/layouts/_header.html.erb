@@ -2,19 +2,15 @@
   <a class="navbar-brand" href="#"> Noticias Internas</a>
   <div class="collapse navbar-collapse" id="">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-      </li>
+      <li class="nav-item active"></li>
     </ul>
     <div class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown" align="right">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Hola! <%= current_user.name%>, <%= link_to "Salir", signout_path, id: "sign_out" %>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Salir", signout_path, id: "sign_out" %>
-          </div>
+        <li class="nav-item dropdown" align="right">        
+          Hola! <%= current_user.name%>,
+          <%= link_to signout_path do%>
+            <i class="icon-arrow-right"></i>Salir
+          <% end %>
         </li>
       </ul>
     </div>
