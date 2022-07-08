@@ -14,15 +14,15 @@
 
   <body>
     <div class="container-scroller">
-      <%= render "layouts/header"  if current_user.present?%> 
+      <%= render "layouts/header" if current_user.present? %> 
       <div class="container-fluid page-body-wrapper">
-      <div class="row w-100 mx-0">
-        <div class="content-wrapper">
-          <%= yield %>
+        <div class="row w-100 mx-0">
+          <div class="content-wrapper">
+            <%= yield %>
+          </div>
         </div>
       </div>
     </div>
-    </div>
-    <%#= javascript_include_tag params[:controller] %>
+    <%= render "layouts/footer" %> 
   </body>
 </html>

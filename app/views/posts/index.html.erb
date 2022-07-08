@@ -5,28 +5,33 @@
         <!--<form class="form-inline">-->
           <div class="form-row">
             <div class="col-md-4">
-              <label class="sr-only">Autor</label>
+              <label style="color: #605a5a; font-size: 11px;">Autor</label>
               <%= text_field_tag :author, params[:author], class:"form-control", placeholder:"Buscar por nombre de autor..."%>
             </div>
             <div class="col-md-3">
+              <label style="color: #605a5a; font-size: 11px;">Fecha Inicio</label>
               <%= date_field_tag :start_date, params[:start_date], class:"form-control",  placeholder:"Fecha Inicio" %>
             </div>
             <div class="col-md-3">
+              <label style="color: #605a5a; font-size: 11px;">Fecha Fin</label>
               <%= date_field_tag :end_date, params[:end_date], class:"form-control",  placeholder:"Fecha Fin" %>
             </div>
             <div class="col-md-2" align="center">
-              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+              <button type="submit" class="btn btn-primary mt-4 mb-2">Filtar</button>
             </div>
           </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-8">
-      <p class="mb-4 text-mute mt-5" align="right">Ordenar Autor por:</p>
+    <div class="col-4" align="left">
+        <%= link_to "Nueva Noticia", new_post_path, class:"btn btn-primary mb-5 mt-5"%>
+    </div>
+    <div class="col-4">
+      <p class="mb-4 text-mute mt-5" align="right" tyle="color: #605a5a; font-size: 12px;">Ordenar autor de forma:</p>
     </div>
     <div class="col-4" align="right" >
-      <%= select_tag :order_by, options_for_select([['Ascendente', 0],['Descendente',1]]), class:'form-control mb-4 mt-5' %>
+      <%= select_tag :order_by, options_for_select([['Ascendente', 0],['Descendente',1]]), class:'form-control mb-5 mt-5' %>
     </div>
   </div>
 <% end %>
@@ -37,5 +42,3 @@
 </div>
 
 <p style="color: green"><%= notice %></p>
-
-<%= link_to "New post", new_post_path %>

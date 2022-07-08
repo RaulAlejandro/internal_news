@@ -4,14 +4,13 @@
       <div class="card mb-3" >
         <div class="row no-gutters">
           <div class="col-md-2">
-            <%#= image_tag post.image, style:"height: 100%", class:"card-img"%>
             <%= image_tag(post.image.attached? ?  post.image : 'account-add-photo.svg' , style:"height: 100%" , class: "card-img") %>
           </div>
           <div class="col-md-10">
             <div class="card-body">
               <h5 class="card-title"><%= post.title%></h5>
-              <!--<p class="card-text"><%#= sanitize truncate post.content.html_safe, length: 50  %>.</p>-->
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <br>
+              <p class="card-text"><small class="text-muted">Publicado hace <%= time_ago_in_words(post.created_at) %></small></p>
             </div>
           </div>
         </div>
