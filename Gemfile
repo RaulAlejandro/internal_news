@@ -19,9 +19,6 @@ gem "jquery-rails"
 gem "figaro"
 gem 'omniauth-google-oauth2', "~> 0.8.0"
 gem 'tinymce-rails'
-
-
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
@@ -62,6 +59,10 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  gem 'rspec-rails'
+  gem 'factory_bot'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
