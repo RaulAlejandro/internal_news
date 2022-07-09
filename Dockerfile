@@ -1,5 +1,5 @@
 # Base image, make sure that the Ruby version is compatible with the version in your Gemfile.
-FROM ruby:2.7.0
+FROM ruby:2.7.2
 
 # Install dependencies needed for the app and delete the packages after installed.
   RUN apt-get update -qq \
