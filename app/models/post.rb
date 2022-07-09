@@ -10,7 +10,8 @@ class Post < ApplicationRecord
     validate  :acceptable_image
     validates :title,
               :content,
-              presence: { message: I18n.t('messages.not_blank') }
+              :user,
+              presence: true
 
     ##############
 
@@ -30,6 +31,7 @@ class Post < ApplicationRecord
                 query = query.joins(:user).order('users.name ASC')
             end
         end
+        query
     end
 
     private
