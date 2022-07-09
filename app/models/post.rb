@@ -10,6 +10,7 @@ class Post < ApplicationRecord
     validate  :acceptable_image
     validates :title,
               :content,
+              :summary,
               :user,
               presence: true
 
