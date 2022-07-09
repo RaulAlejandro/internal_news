@@ -9,6 +9,13 @@ Things you may want to cover:
 
 * System dependencies
 
+* Update files yml files
+
+    - application.yml
+    - .env 
+
+    Add values in the environment variables, created in the (application.yml & .env) files
+
 * Creation & Initialization with Rails
     
     - rails db:create
@@ -36,6 +43,8 @@ Things you may want to cover:
     - docker compose up
 
 NOTE: 
+
+   -
    
    - All commands must be run inside the project path
 
