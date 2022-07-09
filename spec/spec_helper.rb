@@ -12,11 +12,34 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+
+require 'capybara/rspec'
+require 'omniauth'
+
+OmniAuth.config.test_mode = true
+
+Capybara.register_driver :selenium do |app|
+  browser_options = ::Selenium::WebDriver::Firefox::Options.new()
+  browser_options.args << '--headless'
+  #browser_options.args << 'disable-gpu'
+
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :firefox,
+    options: browser_options
+  )
+end
+
+Capybara.javascript_driver = :selenium
+Capybara.default_max_wait_time = 10
+
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
+  #config.include(OmniAuthTest)
+
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
