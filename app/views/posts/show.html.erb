@@ -1,7 +1,6 @@
 <p style="color: green"><%= notice %></p>
-
+<small class="mb-4 text-muted">
+  <%= link_to "<< Regresar a noticias", posts_path %>
+</small>
+<br></br>
 <%= render @post %>
-
-<div>
-  <%= link_to "Back to posts", posts_path %>
-</div>

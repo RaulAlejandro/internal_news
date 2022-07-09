@@ -1,7 +1,5 @@
-<h3>Nueva Noticia</h3>
-<br>
+<small class="mb-4 text-muted">
+  <%= link_to "<< Regresar a noticias", posts_path %>
+</small>
+<br></br>
 <%= render "form", post: @post %>
-<br>
-<div>
-  <%= link_to "Regresar", posts_path %>
-</div>
