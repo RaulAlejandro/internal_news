@@ -1,8 +1,7 @@
 <div class="grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Publicación de Noticias</h4>
-      <!--<h2 class="card-title">Crear Nueva Noticia</h2>-->
+      <h4 class="card-title">Publicar Noticia</h4>
       <%= form_for(@post, url: posts_path, html: { id: 'formPost', class: 'forms-sample'} ) do |f| %> 
         <div class="form-group">
           <%= f.label :title, "Titular", class:"control-label"%>

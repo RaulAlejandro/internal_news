@@ -9,7 +9,7 @@ RSpec.feature "Posts", type: :feature, js: true do
     before do
       visit(sign_in_path)
       omni_auth_test.valid_google_login
-      click_link "Conectate usando Google"
+      click_link "Conéctate usando Google"
     end 
 
     it 'Visit index posts' do
