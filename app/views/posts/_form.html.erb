@@ -1,36 +1,32 @@
 <div class="grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
+      <h4 class="card-title">Publicación de Noticias</h4>
       <!--<h2 class="card-title">Crear Nueva Noticia</h2>-->
       <%= form_for(@post, url: posts_path, html: { id: 'formPost', class: 'forms-sample'} ) do |f| %> 
         <div class="form-group">
-          <%= f.label :title, class:"control-label"%>
+          <%= f.label :title, "Titular", class:"control-label"%>
           <%= f.text_field :title, class: "form-control", required: true %>
         </div>
         <div class="form-group">
-          <label>File upload</label>
-          <input type="file" name="img[]" class="file-upload-default">
+          <%= f.label :summary, "Bajada", class:"control-label"%>
+          <%= f.text_field :summary, class: "form-control", required: true, value:"" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :image, "Imagen"%><br>
           <div class="input-group col-xs-12">
-            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-            <span class="input-group-append">
-              <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-            </span>
+            <%= f.file_field :image , class:"form-control file-upload-info", required: true%>
           </div>
         </div>
         <div class="form-group">
-          <%= f.label :image %>
-          <%= f.file_field :image %>
-        </div>
-        <div class="form-group">
-          <%= f.label :content, class:"control-label"%>
+          <%= f.label :content, "Contenido", class:"control-label"%>
           <%= f.text_area :content, class: "tinymce", cols:"20", rows:"20" %>
           <%= tinymce %>
         </div>
         <%= f.hidden_field :user_id, class: "form-control", value:current_user.id %>
-
         <div class="navbar-right">
           <%= f.submit "Publicar", class: "btn btn-primary" %>
-          <button class="btn btn-light">Cancel</button>
+          <%= link_to "Cancelar", posts_path, class:"btn btn-light" %>
         </div>
       <% end %>
     </div>
