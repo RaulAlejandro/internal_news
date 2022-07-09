@@ -11,7 +11,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 #require 'support/factory_bot'
 
-
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -47,7 +46,9 @@ RSpec.configure do |config|
     end
   end
 
-
+  #Time Helper
+  config.include ActiveSupport::Testing::TimeHelpers
+  
   #FactoryBot
   config.include FactoryBot::Syntax::Methods
 

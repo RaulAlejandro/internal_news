@@ -20,7 +20,7 @@ class Post < ApplicationRecord
         query = Post.all
         if author.present?
             query = query.joins(:user)
-                         .where('users.name LIKE ?', "%#{author}%")
+                         .where('users.name ILIKE ?', "%#{author}%")
         end
         if start_date.present? && start_date.present?
             query = query.where("posts.created_at BETWEEN ? AND ?", start_date, end_date )

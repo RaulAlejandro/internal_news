@@ -5,20 +5,38 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.7.2
 
 * System dependencies
 
-* Configuration
+* Creation & Initialization with Rails
+    
+    - rails db:create
 
-* Database creation
+    - rails db:migrate
 
-* Database initialization
+    - bundle install      
 
-* How to run the test suite
+* Run test of integration/unitary with Rails
+    
+    - bundle exec rspec
+    
+    - bundle exec rspec spec/features/posts_spec.rb
+    
+    - bundle exec rspec spec/models/post_spec.rb
+    
+* Creation & Initialization with Docker 
+    
+    - docker compose build
 
-* Services (job queues, cache servers, search engines, etc.)
+    - docker compose run web bin/rails db:create
 
-* Deployment instructions
+    - docker compose run web bin/rails db:migrate
+
+    - docker compose up
+
+NOTE: 
+   
+   - All commands must be run inside the project path
 
 * ...
